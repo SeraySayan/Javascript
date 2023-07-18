@@ -42,3 +42,9 @@ const msgBtn = document.querySelector('.btn--close-cookie').addEventListener('cl
     message.remove();
 });
 */
+// Smooth Scrolling
+const scrollToBtn = document.querySelector('.btn--scroll-to');
+const sectionFeatures = document.querySelector('#section--1');
+scrollToBtn.addEventListener('click', function () {
+    sectionFeatures.scrollIntoView({ behavior: 'smooth' });
+});
