@@ -48,3 +48,27 @@ const sectionFeatures = document.querySelector('#section--1');
 scrollToBtn.addEventListener('click', function () {
     sectionFeatures.scrollIntoView({ behavior: 'smooth' });
 });
+
+// const h1 = document.querySelector('h1');
+// h1.addEventListener('mouseenter', function () {
+//     alert('great');
+// });
+
+// Page Navigation
+//FIRST SOLUTION
+// document.querySelectorAll('.nav__link').forEach((element) => {
+//     element.addEventListener('click', function (e) {
+//         e.preventDefault();
+//         const id = this.getAttribute('href');
+//         document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+//     });
+// });
+
+//SECOND SOLUTION (EVENT DELEGATION ONE PARENT ELEMENT FOR THE SAME EVENT HANDLER)
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+    e.preventDefault();
+    if (e.target.classList.contains('nav__link')) {
+        const id = e.target.getAttribute('href');
+        document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+    }
+});
