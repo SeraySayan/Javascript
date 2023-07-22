@@ -111,3 +111,14 @@ const handleEvent = function (e) {
 const navBar = document.querySelector('.nav');
 navBar.addEventListener('mouseover', handleEvent.bind(0.5));
 navBar.addEventListener('mouseout', handleEvent.bind(1));
+
+//Sticky Navigation
+const section1 = document.querySelector('#section--1');
+const initialsCords = section1.getBoundingClientRect();
+console.log(initialsCords);
+window.addEventListener('scroll', function () {
+    console.log(window.scrollY);
+    if (window.scrollY > initialsCords.top) {
+        navBar.classList.add('sticky');
+    } else navBar.classList.remove('sticky');
+});
