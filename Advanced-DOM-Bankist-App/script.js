@@ -92,3 +92,22 @@ tabContainer.addEventListener('click', function (e) {
         .querySelector(`.operations__content--${clicked.getAttribute('data-tab')}`)
         .classList.add('operations__content--active');
 });
+
+// Menu fade animation (passing argument into event handler)
+const handleEvent = function (e) {
+    if (e.target.classList.contains('nav__link')) {
+        const link = e.target;
+        const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+        const logo = link.closest('.nav').querySelector('img');
+
+        siblings.forEach((el) => {
+            if (el !== link) {
+                el.style.opacity = this;
+            }
+        });
+        logo.style.opacity = this;
+    }
+};
+const navBar = document.querySelector('.nav');
+navBar.addEventListener('mouseover', handleEvent.bind(0.5));
+navBar.addEventListener('mouseout', handleEvent.bind(1));
