@@ -133,7 +133,7 @@ navBar.addEventListener('mouseout', handleEvent.bind(1));
 // observer.observe(section1);
 
 //Sticky Navigation Intersection Observer API
-
+const navHeight = navBar.getBoundingClientRect().height;
 const stickyNav = function (entries) {
     const [entry] = entries;
     if (!entry.isIntersecting) navBar.classList.add('sticky');
@@ -142,6 +142,6 @@ const stickyNav = function (entries) {
 const observer = new IntersectionObserver(stickyNav, {
     root: null,
     threshold: 0,
-    rootMargin: '-90px',
+    rootMargin: `-${navHeight}px`,
 });
 observer.observe(header);
